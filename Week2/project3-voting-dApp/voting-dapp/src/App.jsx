@@ -168,7 +168,7 @@ function App() {
     if (!contract || !isOwner || !newCandidate.trim()) return;
     
     try {
-      const tx = await contract.addCandidate(newCandidate.trim());
+      const tx = await contract.addCantidate(newCandidate.trim());
       await tx.wait();
       
       setNewCandidate('');
