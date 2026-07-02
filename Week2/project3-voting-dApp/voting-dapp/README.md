@@ -1,16 +1,78 @@
-# React + Vite
+# 🗳️ Voting DApp - Decentralized Voting Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, transparent, and tamper-proof voting application built on the Polygon Mumbai testnet.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📋 Project Overview
 
-## React Compiler
+**Project**: Decentralized Voting Application  
+**Type**: Blockchain DApp  
+**Network**: Polygon Amoy (Testnet)  
+**Status**: ✅ Complete
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Live Demo
+🌐 **Vercel URL**: https://voting-dapp-five-delta.vercel.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Problem & Solution
+
+**Problem**: Traditional voting systems lack transparency and can be manipulated by central authorities.
+
+**Solution**: A blockchain-based voting system where:
+- Each address can vote only once
+- All votes are recorded immutably
+- Results are publicly verifiable
+- No central authority can alter outcomes
+
+---
+
+## ✨ Features
+
+### For Voters
+- 🔗 Connect MetaMask wallet
+- 📋 View all candidates with their vote counts
+- 🗳️ Cast a single vote (one per address)
+- 📊 See real-time results
+- 🏆 View winner when voting closes
+
+### For Admin (Owner)
+- ➕ Add new candidates
+- 🔓 Open/Close voting
+- 👁️ Full visibility of all votes
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Smart Contract** | Solidity 0.8.0 |
+| **Blockchain** | Polygon Amoy Testnet |
+| **Frontend** | React 18 + Vite |
+| **Web3 Library** | Ethers.js 5.7 |
+| **Wallet** | MetaMask |
+| **Hosting** | Vercel |
+
+---
+
+## 📜 Smart Contract
+
+### Deployment Details
+| Field | Value |
+|-------|-------|
+| **Network** | Polygon Amoy |
+| **Contract Address** | `0xd70946Fb2e7e180904cD5dB34C1CcEFc739bF03D` |
+| **View on Polygonscan** | [Link](https://amoy.polygonscan.com/address/0xd70946Fb2e7e180904cD5dB34C1CcEFc739bF03D) |
+
+### Key Functions
+```solidity
+// Admin functions
+function addCandidate(string memory _name) external onlyOwner
+function setVotingStatus(bool _status) external onlyOwner
+
+// Public functions
+function vote(uint256 _candidateId) external
+function getAllCandidates() external view returns (Candidate[] memory)
+function getWinner() external view returns (string memory, uint256)
