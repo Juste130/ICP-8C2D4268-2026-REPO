@@ -1,20 +1,30 @@
 {
   "name": "project4-erc20-token",
   "version": "1.0.0",
-  "description": "",
+  "description": "Custom ERC-20 token with OpenZeppelin and Hardhat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run --network hardhat scripts/deploy.js",
+    "deploy:amoy": "npx hardhat run --network amoy scripts/deploy.js",
+    "interact:local": "npx hardhat run --network hardhat scripts/interact.js",
+    "interact:amoy": "npx hardhat run --network amoy scripts/interact.js",
+    "verify:amoy": "npx hardhat run --network amoy scripts/verify.js",
+    "clean": "npx hardhat clean",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network hardhat",
+    "size": "npx hardhat size-contracts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["erc20", "token", "hardhat", "polygon", "web3"],
+  "author": "HOUEZO Juste (houezojuste0gmail.com)",
+  "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
-    "hardhat": "^3.9.0"
+    "@nomicfoundation/hardhat-toolbox": "^6.1.2",
+    "hardhat": "^2.28.6"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^5.6.1",
     "dotenv": "^17.4.2"
   }
 }
